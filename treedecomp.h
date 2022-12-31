@@ -2304,30 +2304,12 @@ class TDTree
         ///////////////////////////// Parameters setting
         int N = 25000;
 
-        double query1num1 = 500000;
-        double query1num2 = 0;
-
-        double query2num1 = 200000;
-        double query2num2 = 0;
-
-
-        // double query1num1 = 10;
-        // double query2num1 = 10;
-        // double query1num2 = 10;
-        // double query2num2 = 5;
-
         int nodesnum = 20000;
         //int nodesnum = 320000;
         //int nodesnum = 435000;
         //int nodesnum = 1070000;
         //int nodesnum = 6262000;
 
-        // BuildShortcuts(100000);
-        // for (int i = 0; i < tnodes.size(); i++)
-        // {
-        //     cout << "selectShortcutAndBuils: " << i << endl;
-        //     selectShortcutAndBuils(i);
-        // }
         
 
         clock_t tbegin3 = clock();
@@ -2337,16 +2319,7 @@ class TDTree
         buildShortcutSetUp2BottomTree(queryNode, N);
         cout << "Finish building all shortcuts" << endl;
 
-        // //dpSelection(10000000);
-        //approSelection(2000000);
-        
-        //approximationSelection(10000000);
-        // int shortcutNum = 0;
-        // for (int i = 0; i < tnodes.size(); i++)
-        // {
-        //     shortcutNum += tnodes[i].ancestors.size();
-        // }
-        // cout << "shortcut size: " <<  shortcutNum << endl;
+
         
         clock_t tend3 = clock(); 
         cout << "Finish build shortcuts time cost: " + to_string((tend3 - tbegin3) / CLOCKS_PER_SEC) + "s" << endl; 
@@ -2385,7 +2358,7 @@ class TDTree
 
 
         clock_t tbegin1 = clock();
-        for (int x = 0; x < query1num1; x++)
+        for (int x = 0; x < query1num; x++)
         {
             int i = queryNode[rand()%(queryNode.size())];
             int j = queryNode[rand()%(queryNode.size())];
@@ -2397,7 +2370,7 @@ class TDTree
             double cost = shortcutQueryCost(i,j,100);
             //cout << cost << endl;
         }
-        for (int x = 0; x < query1num2; x++)
+        for (int x = 0; x < query1num; x++)
         {
             int i = rand()%nodesnum;
             int j = rand()%nodesnum;
@@ -2418,7 +2391,7 @@ class TDTree
 
 
         clock_t tbegin2 = clock();
-        for (int x = 0; x < query2num1; x++)
+        for (int x = 0; x < query2num; x++)
         {
             int i = queryNode[rand()%(queryNode.size())];
             int j = queryNode[rand()%(queryNode.size())];
@@ -2430,7 +2403,7 @@ class TDTree
             shortcutQueryFunctionUp2Bottom(i,j,0,PLFy);
             //cout << PLFy << endl;
         }
-        for (int x = 0; x < query2num2; x++)
+        for (int x = 0; x < query2num; x++)
         {
             int i = rand()%nodesnum;
             int j = rand()%nodesnum;
