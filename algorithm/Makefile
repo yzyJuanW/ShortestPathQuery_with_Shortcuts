@@ -19,7 +19,7 @@ all: tdtree
 # 	$(CXX) $(CFLAGS) $(METISLIB) -o tdtree mainTD.cpp
 
 
-tdtree: mainTD.cpp treedecomp.h PLF.h Constants.h Segment.h misc.h
+tdtree: mainTD.cpp Shortcuts_.h PLF.h Constants.h Segment.h misc.h
 	$(CXX) $(CFLAGS) -o tdtree mainTD.cpp $(LIBS)
 
 
